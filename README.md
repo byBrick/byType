@@ -1,5 +1,5 @@
 # byType
-Sensible default typography for your projects by @davidpaulsson.
+Sensible default typography for your projects by @[davidpaulsson](https://twitter.com/davidpaulsson).
 
 ## How do I use this
 This is a micro framework only to kick start you web projects typography. It does some pretty fancy pants stuff all thanks to SASS and Compass. It's *not* a full blown typography framework you can use and forget, it's meant to hack and make your own.
