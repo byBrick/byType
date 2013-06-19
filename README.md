@@ -6,6 +6,8 @@ This is a micro framework only to kick start you web projects typography. It doe
 
 Stuff is pretty well commented, so digg in and make it your own.
 
+[Here's a demo](http://bytype.davidpaulsson.se/).
+
 ## Why?
 Because I've found myself doing this over, and over again. No more.
 
