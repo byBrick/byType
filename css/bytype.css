@@ -79,7 +79,7 @@ html {
   line-height: 1.5em;
 }
 
-/* =Clearfixs and extends. Use which suits best
+/* =Clearfix
 -------------------------------------------------------------- */
 .clearfix {
   overflow: hidden;
