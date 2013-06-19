@@ -1,0 +1,323 @@
+/*
+ * byType v1.0
+ *
+ * Copyright 2012 byBrick Interface
+ *
+ * Sensible default typography for your projects 
+ * by @davidpaulsson.
+ */
+/* =Reset
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* html {
+  font-size: 100%;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+/* =Clearfixs and extends. Use which suits best
+-------------------------------------------------------------- */
+.clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.pie-clearfix {
+  *zoom: 1;
+}
+.pie-clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* =Base
+-------------------------------------------------------------- */
+html {
+  font-size: 100%;
+  font-kerning: normal;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+/* =Default Sizing and spacing
+-------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1, h2, h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2.25em;
+  line-height: 1.33333em;
+  margin: 0 0 0.66667em 0;
+}
+
+h2 {
+  font-size: 1.875em;
+  line-height: 1.6em;
+  margin: 1.6em 0 0.8em 0;
+}
+
+h3 {
+  font-size: 1.375em;
+  line-height: 2.18182em;
+  margin: 0 0 1.09091em 0;
+}
+
+h4 {
+  font-size: 1.25em;
+  line-height: 1.2em;
+  margin: 0 0 1.2em 0;
+}
+
+h5 {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  margin: 0 0 1.33333em 0;
+}
+
+h6 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 1.5em 0;
+}
+
+p,
+pre,
+label {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 1.5em 0;
+}
+
+ol,
+ul {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 1.5em 0;
+}
+
+ul {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+ol {
+  list-style-position: inside;
+  list-style-type: decimal;
+}
+
+li {
+  line-height: auto;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+em,
+i,
+q {
+  font-style: italic;
+}
+
+blockquote {
+  padding-left: 2em;
+  padding-right: 2em;
+  line-height: normal;
+  margin: 3.6em 0 3.6em 0;
+}
+blockquote p {
+  font-size: 1.25em;
+  line-height: 1.2em;
+  font-style: italic;
+}
+blockquote footer {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* =Links
+-------------------------------------------------------------- */
+a {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -hp-pre-wrap;
+  word-wrap: break-word;
+  color: #2980b9;
+}
+a:hover, a:focus, a:active {
+  color: #409ad5;
+}
+
+/* =Stop iPhone/iPad from scaling text
+ * =Absolute measure here, as we're talking about devices, not screen size
+-------------------------------------------------------------- */
+@media screen and (max-width: 769px) {
+  -webkit-text-size-adjust: none;
+}
+/* =Text meant only for screen readers
+-------------------------------------------------------------- */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/* =Demo
+ * =This section is for the docs demo only, remove this!
+-------------------------------------------------------------- */
+.wrapper {
+  margin-bottom: 1.5em;
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 0 40px;
+}
+
+.header-container {
+  margin-bottom: 4.5em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  background-color: #16a085;
+  color: #ecf0f1;
+}
+
+.main-container article {
+  float: left;
+  margin-right: 5%;
+  width: 55%;
+}
+.main-container aside {
+  float: left;
+  width: 40%;
+}
+.main-container aside section {
+  border-bottom-style: solid;
+  border-bottom-width: 0.0625em;
+  padding-bottom: 1.4375em;
+  margin-bottom: 3em;
+  border-color: #cfd9db;
+}
+.main-container aside section:last-child {
+  border-bottom: 0;
+}
+
+.footer-container {
+  margin-top: 4.5em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  background-color: #2980b9;
+  color: #ecf0f1;
+}
+
+@media screen and (max-width: 769px) {
+  .main-container article {
+    margin-bottom: 1.5em;
+    float: none;
+    padding-right: 0;
+    width: 100%;
+  }
+  .main-container aside {
+    float: none;
+    width: 100%;
+  }
+}

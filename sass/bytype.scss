@@ -1,0 +1,304 @@
+/*!
+ * byType v1.0
+ *
+ * Copyright 2012 byBrick Interface
+ *
+ * Sensible default typography for your projects 
+ * by @davidpaulsson.
+ */
+
+// Make sure you have access to Compass. If you already have
+// includes Compass in your project, remove this line below.
+@import "compass";
+
+/* =Reset
+-------------------------------------------------------------- */
+
+// Don't forget to reset stuff. If you already have rolled
+// own restet, remove this block.
+@import "compass/reset";
+
+// Apply a natural box layout model to all elements
+* {
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+// =Variables
+// =Fonts, measure, leading, typefaces, colors
+// ----------------------------------------------------------- */
+
+// Font stacks
+$serif-font-stack:				Georgia, Times, "Times New Roman", serif;
+$sans-serif-font-stack: 		"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Fonts size and line height defaults
+$base-font-size: 				16px; // Sets the browser default size. Shouldn't need to change this.
+$base-line-height: 				24px; // Baseline grid. Set to a sensible, small size.
+$round-to-nearest-half-line:	false; // Round the line height to the nearest half line height. Eurm, nope!
+@include establish-baseline;	// "This is where the magic happens" —Everyone on MTV Cribs.
+
+// Set up your colors
+$bodyBgr:						#ecf0f1;
+$bodyText:						#2c3e50;
+$primary:						#16a085;
+$secondary:						#2980b9;
+$primaryAlt:					lighten($primary,10%);
+$secondaryAlt:					lighten($secondary,10%);
+
+/* =Clearfixs and extends. Use which suits best
+-------------------------------------------------------------- */
+
+// This will create classes in your CSS to use in your HTML. 
+// You may very well just use these @includes directly in your
+// SCSS instead in which case your should just remove this 
+// block completely.
+
+// Use clearfix if you need general clearfixing
+.clearfix {
+	@include clearfix;
+}
+
+// Use pie-clearfix if you need clearfixing that doesn't 
+// use overflow: hidden
+.pie-clearfix {
+	@include pie-clearfix;
+}
+
+/* =Base
+-------------------------------------------------------------- */
+
+html {
+	font-size: 100%;
+	font-kerning: normal; // Set the default for kerning
+	font-synthesis: none; // Don't allow the font to create sythetic bold/italic
+	text-rendering: optimizeLegibility; // Improve kerning pairs. Caution: Webkit gets funny with this sometimes
+	-webkit-font-smoothing: antialiased; // Improve (or in some cases royally screw with) safari's legibility somewhat
+}
+
+body { 
+	background-color: $bodyBgr;
+	color: $bodyText;
+	font-family: $serif-font-stack;
+}
+
+/* =Default Sizing and spacing
+-------------------------------------------------------------- */
+
+// You'll often get better results here if you work in numbers the divide into the baseline.
+// IE, if you have a baseline of 6px, multiples or divisions of often provide best results in ems 
+
+#{headings()} {
+	font-weight: bold;
+}
+#{headings(3)} {
+	font-family: $sans-serif-font-stack;
+}
+
+h1 { 
+	@include adjust-font-size-to(36px); 
+	margin: 0 0 rhythm(1, 36px) 0; // 1 linee below
+} 
+
+h2 { 
+	@include adjust-font-size-to(30px); 
+	margin: rhythm(2, 30px) 0 rhythm(1, 30px) 0; // 2 line above, 1 line below 
+}
+
+h3 { 
+	@include adjust-font-size-to(22px); 
+	margin: 0 0 rhythm(1, 22px) 0; // 1 line below 
+} 
+
+h4 { 
+	@include adjust-font-size-to(20px); 
+	margin: 0 0 rhythm(1, 20px) 0; // 1 line below
+}
+
+h5 { 
+	@include adjust-font-size-to(18px); 
+	margin: 0 0 rhythm(1, 18px) 0; // 1 line below
+}
+
+h6 { 
+	@include adjust-font-size-to(16px); 
+	margin: 0 0 rhythm(1, 16px) 0; // 1 line below
+}
+
+p,
+pre,
+label { 
+	@include adjust-font-size-to(16px); 
+	margin: 0 0 rhythm(1, 16px) 0; // 1 line below
+}
+
+ol,
+ul {
+	@include adjust-font-size-to(16px);
+	margin: 0 0 rhythm(1, 16px) 0; // 1 line below
+}
+
+ul {
+	list-style-position: inside; 
+	list-style-type: disc;
+}
+
+ol {
+	list-style-position: inside; 
+	list-style-type: decimal;
+}
+
+li {
+	line-height: auto;
+}
+
+strong,
+b { 
+	font-weight: bold;
+}
+
+em,
+i,
+q { 
+	font-style: italic;
+}
+
+blockquote {
+	padding-left: 2em;
+	padding-right: 2em;
+	line-height: normal;
+	margin: rhythm(3, 20px) 0 rhythm(3, 20px) 0; 		//  3 lines above / 3 lines below, based on font size
+	p {
+		@include adjust-font-size-to(20px); 
+
+		font-style: italic;
+	}
+	footer {
+		font-family: $sans-serif-font-stack;
+	}
+}
+
+/* =Links
+-------------------------------------------------------------- */
+
+a {
+	// force text links to wrap
+	@include force-wrap;
+
+	color: $secondary;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $secondaryAlt;
+	}
+}
+
+/* =Stop iPhone/iPad from scaling text
+ * =Absolute measure here, as we're talking about devices, not screen size
+-------------------------------------------------------------- */
+
+@media screen and (max-width: 769px) {  
+	-webkit-text-size-adjust:none;
+}
+
+/* =Text meant only for screen readers
+-------------------------------------------------------------- */
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; // Above everything we throw at it
+}
+
+/* =Demo
+ * =This section is for the docs demo only, remove this!
+-------------------------------------------------------------- */
+
+.wrapper {
+	@include trailer();
+
+	margin: 0 auto;
+	max-width: 1020px;
+	padding: 0 40px;
+}
+
+.header-container {
+	@include trailer(3);
+	@include padding-leader(2);
+	@include padding-trailer(2);
+
+	background-color: $primary;
+	color: $bodyBgr;
+}
+
+.main-container {
+	article {
+		float: left;
+		margin-right: 5%;
+		width: 55%;
+	}
+
+	aside {
+		float: left;
+		width: 40%;
+	
+		section {
+			@include trailing-border(1px);
+			@include trailer(2);
+
+			border-color: darken($bodyBgr,10%);
+
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+	}
+}
+
+.footer-container {
+	@include leader(3);
+	@include padding-leader(2);
+	@include padding-trailer(2);
+
+	background-color: $secondary;
+	color: $bodyBgr;
+}
+
+@media screen and (max-width: 769px) {
+	.main-container {
+		article {
+			@include trailer;
+
+			float: none;
+			padding-right: 0;
+			width: 100%;
+		}
+
+		aside {
+			float: none;
+			width: 100%;
+		}
+	}
+}
