@@ -21,9 +21,7 @@
 
 // Apply a natural box layout model to all elements
 * {
-	-moz-box-sizing: border-box; 
-	-webkit-box-sizing: border-box; 
-	box-sizing: border-box;
+	@include box-sizing(border-box);
 }
 
 // =Variables
@@ -92,6 +90,11 @@ body {
 }
 #{headings(3)} {
 	font-family: $sans-serif-font-stack;
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -ms-font-feature-settings: "liga", "dlig";
+    -webkit-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
 }
 
 h1 { 

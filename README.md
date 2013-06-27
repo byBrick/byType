@@ -13,3 +13,10 @@ Because I've found myself doing this over, and over again. No more.
 
 ## Licence
 Licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en).
+
+## Changelog
+
+* 1.1
+- Use Compass to ser border-box-sizing;
+- OpenType Ligatures for h1-h3
+* 1.0 First release
