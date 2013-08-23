@@ -16,7 +16,9 @@ Licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](
 
 ## Changelog
 
+* 1.1.1
+** Bug: CSS declaration without a selector, which is invalid
 * 1.1
-** Use Compass to ser border-box-sizing;
+** Use Compass border-box-sizing;
 ** OpenType Ligatures for h1-h3
 * 1.0 First release
