@@ -35,15 +35,14 @@ $sans-serif-font-stack: 		"Helvetica Neue", Helvetica, Arial, sans-serif;
 // Fonts size and line height defaults
 $base-font-size: 				16px; // Sets the browser default size.
 $base-line-height: 				24px; // Baseline grid.
-$round-to-nearest-half-line:	false; // Round the line height to the nearest half line height. Eurm, nope!
 @include establish-baseline;	// "This is where the magic happens" —Everyone on MTV Cribs.
 
 // Set up your colors
 $bodyBgr:						#ecf0f1;
 $bodyText:						#2c3e50;
 $primary:						#16a085;
-$secondary:						#2980b9;
 $primaryAlt:					lighten($primary,10%);
+$secondary:						#2980b9;
 $secondaryAlt:					lighten($secondary,10%);
 
 /* =Clearfix
@@ -74,6 +73,13 @@ html {
 	font-synthesis: none; // Don't allow the font to create sythetic bold/italic
 	text-rendering: optimizeLegibility; // Improve kerning pairs. Caution: Webkit gets funny with this sometimes
 	-webkit-font-smoothing: antialiased; // Improve (or in some cases screw with) safari's legibility somewhat
+
+	// Stop iPhone/iPad from scaling text
+	// Absolute measure here, as we're talking about devices, not screen size
+	@media screen and (max-width: 769px) {  
+		-webkit-text-size-adjust:none;
+	}
+
 }
 
 body { 
@@ -176,6 +182,7 @@ blockquote {
 
 		font-style: italic;
 	}
+	
 	footer {
 		font-family: $sans-serif-font-stack;
 	}
@@ -197,41 +204,18 @@ a {
 	}
 }
 
-/* =Stop iPhone/iPad from scaling text
- * =Absolute measure here, as we're talking about devices, not screen size
--------------------------------------------------------------- */
-
-@media screen and (max-width: 769px) {  
-	-webkit-text-size-adjust:none;
-}
-
 /* =Text meant only for screen readers
 -------------------------------------------------------------- */
 
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-}
-
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000; // Above everything we throw at it
+	border: 0; 
+	clip: rect(0 0 0 0); 
+	height: 1px; 
+	margin: -1px; 
+	overflow: hidden; 
+	padding: 0; 
+	position: absolute; 
+	width: 1px; 
 }
 
 /* =Demo
